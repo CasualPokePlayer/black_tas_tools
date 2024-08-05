@@ -3100,16 +3100,16 @@ internal static partial class Program
 		else
 		{
 			t5MinDamageRoll = t4DamageRoll switch
-            {
-            	85 => 98,
-            	86 or 87 or 88 => 96,
-            	89 or 90 or 91 => 95,
-            	92 or 93 or 94 => 93,
-            	95 or 96 or 97 => 92,
-            	98 or 99 => 90,
-            	100 => 89,
-            	_ => throw new InvalidOperationException()
-            };
+			{
+				85 => 98,
+				86 or 87 or 88 => 96,
+				89 or 90 or 91 => 95,
+				92 or 93 or 94 => 93,
+				95 or 96 or 97 => 92,
+				98 or 99 => 90,
+				100 => 89,
+				_ => throw new InvalidOperationException()
+			};
 		}
 
 		if (!CheckDamageRoll(ref battleRng, t5MinDamageRoll, 100).HasValue) return false;

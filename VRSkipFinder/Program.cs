@@ -404,65 +404,65 @@ internal static class Program
 		}
 
 		var dustCloudRng = (AdvancePidRng(ref pidRng) * 1000) >> 32;
-        if (dustCloudRng >= 100)
-        {
-        	return null;
-        }
+		if (dustCloudRng >= 100)
+		{
+			return null;
+		}
 
-        // 0 means scan rightwards, 1 means scan leftwards, 2 means scan upwards, 3 means scan downwards
-        var direction = (AdvancePidRng(ref pidRng) * 4) >> 32;
-        switch (direction)
-        {
-        	case 0:
-        	{
-        		var dustCloudLoc = (AdvancePidRng(ref pidRng) * numRightwardsSlots) >> 32;
-		        if (!wantedRightwardsSlots.Contains((byte)dustCloudLoc))
-		        {
-			        return null;
-		        }
+		// 0 means scan rightwards, 1 means scan leftwards, 2 means scan upwards, 3 means scan downwards
+		var direction = (AdvancePidRng(ref pidRng) * 4) >> 32;
+		switch (direction)
+		{
+			case 0:
+			{
+				var dustCloudLoc = (AdvancePidRng(ref pidRng) * numRightwardsSlots) >> 32;
+				if (!wantedRightwardsSlots.Contains((byte)dustCloudLoc))
+				{
+					return null;
+				}
 
-        		break;
-        	}
+				break;
+			}
 
-        	case 1:
-        	{
-		        var dustCloudLoc = (AdvancePidRng(ref pidRng) * numLeftwardsSlots) >> 32;
-		        if (!wantedLeftwardsSlots.Contains((byte)dustCloudLoc))
-		        {
-			        return null;
-		        }
+			case 1:
+			{
+				var dustCloudLoc = (AdvancePidRng(ref pidRng) * numLeftwardsSlots) >> 32;
+				if (!wantedLeftwardsSlots.Contains((byte)dustCloudLoc))
+				{
+					return null;
+				}
 
-        		break;
-        	}
+				break;
+			}
 
-        	case 2:
-        	{
-		        var dustCloudLoc = (AdvancePidRng(ref pidRng) * numUpwardsSlots) >> 32;
-		        if (!wantedUpwardsSlots.Contains((byte)dustCloudLoc))
-		        {
-			        return null;
-		        }
+			case 2:
+			{
+				var dustCloudLoc = (AdvancePidRng(ref pidRng) * numUpwardsSlots) >> 32;
+				if (!wantedUpwardsSlots.Contains((byte)dustCloudLoc))
+				{
+					return null;
+				}
 
-		        break;
-        	}
+				break;
+			}
 
-        	case 3:
-        	{
-		        var dustCloudLoc = (AdvancePidRng(ref pidRng) * numDownwardsSlots) >> 32;
-		        if (!wantedDownwardsSlots.Contains((byte)dustCloudLoc))
-		        {
-			        return null;
-		        }
+			case 3:
+			{
+				var dustCloudLoc = (AdvancePidRng(ref pidRng) * numDownwardsSlots) >> 32;
+				if (!wantedDownwardsSlots.Contains((byte)dustCloudLoc))
+				{
+					return null;
+				}
 
-		        break;
-        	}
-        }
+				break;
+			}
+		}
 
-        for (var i = 0; i < stepsToNextTrainer; i++)
-        {
-	        CheckEncounter(ref pidRng);
-        }
+		for (var i = 0; i < stepsToNextTrainer; i++)
+		{
+			CheckEncounter(ref pidRng);
+		}
 
-        return pidRng;
+		return pidRng;
 	}
 }
