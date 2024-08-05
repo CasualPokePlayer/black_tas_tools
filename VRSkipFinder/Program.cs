@@ -5,6 +5,20 @@ namespace Program;
 
 internal static class Program
 {
+	private static void Main()
+	{
+		//TestSeedDown(0x4ECBDC1BF97E7BDF);
+		TestSeedDown(0x4F850570690A6EC4);
+	}
+
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	private static ulong AdvancePidRng(ref ulong pidRng)
+	{
+		pidRng *= 0x5d588b656c078965;
+		pidRng += 0x269ec3;
+		return pidRng >> 32;
+	}
+
 	private static void TestSeedDown(ulong seed)
 	{
 		for (var i = 0; i < 1000; i++)
@@ -360,109 +374,5 @@ internal static class Program
 				Console.WriteLine($"F {i} / D {direction} / S {slot}");
 			}
 		}
-	}
-
-	private static void Main()
-	{
-		//TestSeedDown(0x4ECBDC1BF97E7BDF);
-		TestSeedDown(0x4F850570690A6EC4);
-	}
-
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
-	private static ulong AdvancePidRng(ref ulong pidRng)
-	{
-		pidRng *= 0x5d588b656c078965;
-		pidRng += 0x269ec3;
-		return pidRng >> 32;
-	}
-
-	private static void CheckEncounter(ref ulong pidRng)
-	{
-		AdvancePidRng(ref pidRng);
-
-		var encounterCheck = (AdvancePidRng(ref pidRng) * 0xFFFF) >> 32;
-		encounterCheck /= 0x290;
-		if (encounterCheck < 4)
-		{
-			// extra rolls for encounter
-			// we have repel, so we don't particularly care this happens
-			// (but the extra rolls happen regardless for whatever reason)
-			AdvancePidRng(ref pidRng);
-			AdvancePidRng(ref pidRng);
-		}
-	}
-
-	private static ulong? CheckDustCloud(ulong pidRng, int numTurnFrames, int stepsToNextTrainer,
-		byte numRightwardsSlots, ReadOnlySpan<byte> wantedRightwardsSlots,
-		byte numLeftwardsSlots, ReadOnlySpan<byte> wantedLeftwardsSlots,
-		byte numUpwardsSlots, ReadOnlySpan<byte> wantedUpwardsSlots,
-		byte numDownwardsSlots, ReadOnlySpan<byte> wantedDownwardsSlots)
-	{
-		for (var i = 0; i < numTurnFrames; i++)
-		{
-			CheckEncounter(ref pidRng);
-		}
-
-		var dustCloudRng = (AdvancePidRng(ref pidRng) * 1000) >> 32;
-		if (dustCloudRng >= 100)
-		{
-			return null;
-		}
-
-		// 0 means scan rightwards, 1 means scan leftwards, 2 means scan upwards, 3 means scan downwards
-		var direction = (AdvancePidRng(ref pidRng) * 4) >> 32;
-		switch (direction)
-		{
-			case 0:
-			{
-				var dustCloudLoc = (AdvancePidRng(ref pidRng) * numRightwardsSlots) >> 32;
-				if (!wantedRightwardsSlots.Contains((byte)dustCloudLoc))
-				{
-					return null;
-				}
-
-				break;
-			}
-
-			case 1:
-			{
-				var dustCloudLoc = (AdvancePidRng(ref pidRng) * numLeftwardsSlots) >> 32;
-				if (!wantedLeftwardsSlots.Contains((byte)dustCloudLoc))
-				{
-					return null;
-				}
-
-				break;
-			}
-
-			case 2:
-			{
-				var dustCloudLoc = (AdvancePidRng(ref pidRng) * numUpwardsSlots) >> 32;
-				if (!wantedUpwardsSlots.Contains((byte)dustCloudLoc))
-				{
-					return null;
-				}
-
-				break;
-			}
-
-			case 3:
-			{
-				var dustCloudLoc = (AdvancePidRng(ref pidRng) * numDownwardsSlots) >> 32;
-				if (!wantedDownwardsSlots.Contains((byte)dustCloudLoc))
-				{
-					return null;
-				}
-
-				break;
-			}
-		}
-
-		for (var i = 0; i < stepsToNextTrainer; i++)
-		{
-			CheckEncounter(ref pidRng);
-		}
-
-		return pidRng;
 	}
 }
