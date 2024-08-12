@@ -377,35 +377,6 @@ internal static partial class Program
 		return true;
 	}
 
-	private static bool CheckN1TailWhip(ulong battleRng)
-	{
-		// turn 1
-		// growl
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-		// tail whip
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-
-		// turn 2
-		// scratch
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, 100, 100).HasValue) return false;
-		// tail whip
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-
-		// turn 3
-		// scratch
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, 100, 100).HasValue) return false;
-		// tackle
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, 100, 100).HasValue) return false;
-
-		return true;
-	}
-
 	private static bool CheckN1Scratch(ulong battleRng)
 	{
 		// turn 1
@@ -2138,6 +2109,7 @@ internal static partial class Program
 		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckBoostedCriticalHitRoll(ref battleRng, true).HasValue) return false;
+		if (!CheckDamageRoll(ref battleRng, 96, 100).HasValue) return false;
 
 		return true;
 	}
@@ -2297,10 +2269,11 @@ internal static partial class Program
 		if (!CheckDamageRoll(ref battleRng, 89, 100).HasValue) return false;
 
 		// turn 4
-		// air cutter
+		// air slash
 		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
-		if (!CheckBoostedCriticalHitRoll(ref battleRng, true).HasValue) return false;
+		//if (!CheckBoostedCriticalHitRoll(ref battleRng, true).HasValue) return false;
+		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 
 		return true;
 	}
@@ -2678,7 +2651,6 @@ internal static partial class Program
 	{
 		// turn 1
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 98, 100).HasValue) return false;
@@ -2686,7 +2658,6 @@ internal static partial class Program
 
 		// turn 2
 		// heart stamp
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
@@ -2694,52 +2665,6 @@ internal static partial class Program
 
 		// turn 3
 		// heart stamp
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
-		if (!CheckFlinchRoll(ref battleRng, 30, null).HasValue) return false;
-
-		// turn 4
-		// air slash
-		if (!CheckForewarn(ref battleRng, 2, 0).HasValue) return false;
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
-		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
-		if (!CheckFlinchRoll(ref battleRng, 30, true).HasValue) return false;
-
-		// turn 5
-		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
-		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
-
-		return true;
-	}
-
-	private static bool CheckBianca5Fly(ulong battleRng)
-	{
-		// turn 1
-		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
-		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, 98, 100).HasValue) return false;
-		if (!CheckFlinchRoll(ref battleRng, 30, null).HasValue) return false;
-
-		// turn 2
-		// heart stamp
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
-		if (!CheckFlinchRoll(ref battleRng, 30, null).HasValue) return false;
-
-		// turn 3
-		// heart stamp
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
@@ -2748,25 +2673,11 @@ internal static partial class Program
 		// turn 4
 		// fly / hypnosis
 		if (!CheckForewarn(ref battleRng, 2, 0).HasValue) return false;
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 
 		// turn 5
 		// fly
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 90, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-
-		return true;
-	}
-
-	private static bool CheckWebster(ulong battleRng)
-	{
-		// turn 1
-		// heart stamp
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, 95, 100).HasValue) return false;
 
 		return true;
 	}
@@ -2775,21 +2686,8 @@ internal static partial class Program
 	{
 		// turn 1
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-
-		return true;
-	}
-
-	private static bool CheckClara(ulong battleRng)
-	{
-		// turn 1
-		// heart stamp
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, 100, 100).HasValue) return false;
 
 		return true;
 	}
@@ -2798,7 +2696,6 @@ internal static partial class Program
 	{
 		// turn 1
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 87, 100).HasValue) return false;
@@ -2810,7 +2707,6 @@ internal static partial class Program
 	{
 		// turn 1
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 88, 100).HasValue) return false;
@@ -2818,7 +2714,6 @@ internal static partial class Program
 
 		// turn 2
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
@@ -2826,7 +2721,6 @@ internal static partial class Program
 
 		// turn 3
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
@@ -2838,7 +2732,6 @@ internal static partial class Program
 	{
 		// turn 1
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 91, 100).HasValue) return false;
@@ -2846,7 +2739,6 @@ internal static partial class Program
 
 		// turn 2
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 
@@ -2857,14 +2749,12 @@ internal static partial class Program
 	{
 		// turn 1
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
 
 		// turn 2
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 96, 100).HasValue) return false;
@@ -2876,14 +2766,12 @@ internal static partial class Program
 	{
 		// turn 1
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 88, 100).HasValue) return false;
 
 		// turn 2
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 90, 100).HasValue) return false;
@@ -2891,7 +2779,6 @@ internal static partial class Program
 
 		// turn 3
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 92, 100).HasValue) return false;
@@ -2903,7 +2790,6 @@ internal static partial class Program
 	{
 		// turn 1
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
@@ -2911,7 +2797,6 @@ internal static partial class Program
 
 		// turn 2
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
@@ -2919,7 +2804,6 @@ internal static partial class Program
 
 		// turn 3
 		// heart stamp
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 91, 100).HasValue) return false;
@@ -2927,26 +2811,7 @@ internal static partial class Program
 
 		// turn 4
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-
-		return true;
-	}
-
-	private static bool CheckShanta(ulong battleRng)
-	{
-		// turn 1
-		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
-		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
-
-		// turn 2
-		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
-		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 
 		return true;
@@ -2956,14 +2821,12 @@ internal static partial class Program
 	{
 		// turn 1
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
 
 		// turn 2
 		// heart stamp
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 85, 92).HasValue) return false;
@@ -2971,21 +2834,18 @@ internal static partial class Program
 
 		// turn 3
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
 
 		// turn 4
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
 
 		// turn 5
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
 
@@ -2996,7 +2856,6 @@ internal static partial class Program
 	{
 		// turn 1
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
@@ -3004,15 +2863,13 @@ internal static partial class Program
 
 		// turn 2
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, 94, 100).HasValue) return false;
+		if (!CheckDamageRoll(ref battleRng, 96, 100).HasValue) return false;
 		if (!CheckFlinchRoll(ref battleRng, 30, null).HasValue) return false;
 
 		// turn 3
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
@@ -3020,7 +2877,6 @@ internal static partial class Program
 
 		// turn 4
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 100, 100).HasValue) return false;
@@ -3028,7 +2884,6 @@ internal static partial class Program
 
 		// turn 5
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 100, 100).HasValue) return false;
@@ -3040,7 +2895,6 @@ internal static partial class Program
 	{
 		// turn 1
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		var t1Crit = CheckCriticalHitRoll(ref battleRng, null)!.Value;
 		if (!CheckDamageRoll(ref battleRng, 85, (byte)(t1Crit ? 91 : 100)).HasValue) return false;
@@ -3048,7 +2902,6 @@ internal static partial class Program
 
 		// turn 2
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, !t1Crit).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, null, null).HasValue) return false;
@@ -3056,7 +2909,6 @@ internal static partial class Program
 
 		// turn 3
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 86, 100).HasValue) return false;
@@ -3064,8 +2916,7 @@ internal static partial class Program
 
 		// turn 4
 		// air slash
-		if (!CheckFrisk(ref battleRng, 1, 0).HasValue) return false;
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
+		//if (!CheckFrisk(ref battleRng, 1, 0).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		var t4Crit = CheckCriticalHitRoll(ref battleRng, null)!.Value;
 		var t4DamageRoll = CheckDamageRoll(ref battleRng, null, null);
@@ -3073,7 +2924,6 @@ internal static partial class Program
 
 		// turn 5
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, !t4Crit).HasValue) return false;
 
@@ -3117,7 +2967,6 @@ internal static partial class Program
 
 		// turn 6
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		var t6DamageRoll = CheckDamageRoll(ref battleRng, null, null);
@@ -3126,7 +2975,6 @@ internal static partial class Program
 
 		// turn 7
 		// air slash
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 95, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 
@@ -3154,18 +3002,15 @@ internal static partial class Program
 	{
 		// turn 1
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 98, 100).HasValue) return false;
 
 		// turn 2
 		// fly / shadow ball
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 
 		// turn 3
 		// fly
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 90, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 86, 100).HasValue) return false;
@@ -3173,14 +3018,12 @@ internal static partial class Program
 
 		// turn 4
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 98, 100).HasValue) return false;
 
 		// turn 5
 		// psychic
-		if (!CheckQuickClaw(ref battleRng, false).HasValue) return false;
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
 		if (!CheckDamageRoll(ref battleRng, 88, 100).HasValue) return false;
@@ -3261,7 +3104,7 @@ internal static partial class Program
 		// fusion flare
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, 100, 100).HasValue) return false;
+		if (!CheckDamageRoll(ref battleRng, 99, 100).HasValue) return false;
 
 		// turn 3
 		// extrasensory
@@ -3278,19 +3121,22 @@ internal static partial class Program
 		byte t4MinDamageRoll;
 		if (t3Crit)
 		{
-			if (t3DamageRoll < 93)
+			if (t3DamageRoll < 90)
 			{
 				return false;
 			}
 
 			t4MinDamageRoll = t3DamageRoll switch
 			{
-				93 or 94 => 98,
-				95 => 96,
-				96 => 94,
-				97 => 92,
-				98 or 99 => 90,
-				100 => 86,
+				90 => 100,
+				91 => 98,
+				92 => 96,
+				93 => 94,
+				94 or 95 => 92,
+				96 => 90,
+				97 => 88,
+				98 => 86,
+				99 or 100 => 85,
 				_ => throw new InvalidOperationException()
 			};
 		}
@@ -3298,14 +3144,13 @@ internal static partial class Program
 		{
 			t4MinDamageRoll = t3DamageRoll switch
 			{
-				85 => 95,
-				86 or 87 or 88 => 94,
-				89 or 90 => 93,
-				91 or 92 or 93 => 92,
-				94 or 95 => 91,
-				96 or 97 or 98 => 90,
-				99 => 89,
-				100 => 88,
+				85 or 86 or 87 => 92,
+				88 or 89 => 91,
+				90 or 91 or 92 => 90,
+				93 => 89,
+				94 or 95 or 96 => 88,
+				97 or 98 => 87,
+				99 or 100 => 86,
 				_ => throw new InvalidOperationException()
 			};
 		}
@@ -3323,7 +3168,7 @@ internal static partial class Program
 		// dragon pulse
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, false).HasValue) return false;
-		if (!CheckDamageRoll(ref battleRng, 85, null).HasValue) return false;
+		if (!CheckDamageRoll(ref battleRng, 85, 87).HasValue) return false;
 		// dragon breath
 		if (!CheckAccuracyRoll(ref battleRng, 100, true).HasValue) return false;
 		if (!CheckCriticalHitRoll(ref battleRng, true).HasValue) return false;

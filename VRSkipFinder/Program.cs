@@ -7,8 +7,25 @@ internal static class Program
 {
 	private static void Main()
 	{
-		//TestSeedDown(0x4ECBDC1BF97E7BDF);
-		TestSeedDown(0x4F850570690A6EC4);
+		const ulong START_SEED = 0x3914985B9DB17948;//0xB2ACC6E278EEBE1B;
+        Console.WriteLine("Down Seeds");
+		TestSeedDown(START_SEED);
+		Console.WriteLine("Left Seeds");
+		TestSeedLeft(START_SEED);
+		Console.WriteLine("Right Seeds");
+		TestSeedRight(START_SEED);
+		Console.WriteLine("Up Seeds");
+		TestSeedUp(START_SEED);
+		Console.WriteLine("Up Right Seeds");
+		TestSeedUpRight(START_SEED);
+		Console.WriteLine("Up Left Seeds");
+		TestSeedUpLeft(START_SEED);
+		Console.WriteLine("Down Right Seeds");
+		TestSeedDownRight(START_SEED);
+		Console.WriteLine("Down Left Seeds");
+		TestSeedDownLeft(START_SEED);
+		Console.WriteLine("Center Seeds");
+		TestSeedCenter(START_SEED);
 	}
 
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]

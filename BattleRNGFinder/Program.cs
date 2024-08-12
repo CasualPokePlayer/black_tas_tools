@@ -66,7 +66,7 @@ internal static partial class Program
 	}
 
 	//private const string INIT_MESSAGE_NO_TOUCH = "2036FE0200000000E09B2602749D2602749D26025725990015754916A665BC8843043004625957000000000000060000A02500008000000000000000000001A0";
-	private const string INIT_MESSAGE_TOUCHING = "2036FE0200000000E09B2602749D2602749D26023C569C00F1954916AA6BBB8864050104004817000000000011011000FF2F00008000000000000000000001A0";
+	private const string INIT_MESSAGE_TOUCHING = "2036FE0200000000E09B2602749D2602749D2602563F9C001F9549168155BB886405010400474900000000007501500CF92B00008000000000000000000001A0";
 
 	private static bool CheckBattleRng(ulong battleRng)
 	{
@@ -75,7 +75,6 @@ internal static partial class Program
 		//return CheckCheren1(battleRng);
 		//return CheckN1Growl(battleRng);
 		//return CheckN1Scratch(battleRng);
-		//return CheckN1TailWhip(battleRng);
 		//return CheckJimmy(battleRng);
 		//return CheckBianca2(battleRng);
 		//return CheckCheren2(battleRng);
@@ -150,17 +149,13 @@ internal static partial class Program
 		//return CheckPlasmaGrunt18(battleRng);
 		//return CheckPlasmaGrunt19(battleRng);
 		//return CheckBianca5(battleRng);
-		//return CheckBianca5Fly(battleRng);
-		//return CheckWebster(battleRng);
 		//return CheckOlwen(battleRng);
-		//return CheckClara(battleRng);
 		//return CheckHugo(battleRng);
 		//return CheckTom(battleRng);
 		//return CheckDara(battleRng);
 		//return CheckKim(battleRng);
 		//return CheckDrayden(battleRng);
 		//return CheckCheren7(battleRng);
-		//return CheckShanta(battleRng);
 		//return CheckMarshall(battleRng);
 		//return CheckGrimsley(battleRng);
 		//return CheckCaitlin(battleRng);
