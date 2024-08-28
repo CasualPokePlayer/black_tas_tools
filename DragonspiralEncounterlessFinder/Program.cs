@@ -7,8 +7,8 @@ internal static class Program
 {
 	private static void Main()
 	{
-		var pidRng = 0x931F0DA247DB775EUL;//0x5A58F389E9E8A1B3UL;
-		for (var i = 0; i < 1000; i++)
+		var pidRng = 0x9320AE646462A2FEUL;
+		for (var i = 0; i < 500; i++)
 		{
 			var curPidRng = pidRng;
 			AdvancePidRng(ref pidRng);

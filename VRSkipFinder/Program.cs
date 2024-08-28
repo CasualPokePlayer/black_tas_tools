@@ -7,7 +7,7 @@ internal static class Program
 {
 	private static void Main()
 	{
-		const ulong START_SEED = 0x3914985B9DB17948;//0xB2ACC6E278EEBE1B;
+		const ulong START_SEED = 0xB7C909E1756A5D0B;
         Console.WriteLine("Down Seeds");
 		TestSeedDown(START_SEED);
 		Console.WriteLine("Left Seeds");
@@ -38,7 +38,7 @@ internal static class Program
 
 	private static void TestSeedDown(ulong seed)
 	{
-		for (var i = 0; i < 1000; i++)
+		for (var i = 0; i < 200; i++)
 		{
 			var spawnCloud = (AdvancePidRng(ref seed) * 1000) >> 32;
 			if (spawnCloud < 100)
@@ -79,7 +79,7 @@ internal static class Program
 
 	private static void TestSeedLeft(ulong seed)
 	{
-		for (var i = 0; i < 1000; i++)
+		for (var i = 0; i < 200; i++)
 		{
 			var spawnCloud = (AdvancePidRng(ref seed) * 1000) >> 32;
 			if (spawnCloud < 100)
@@ -118,7 +118,7 @@ internal static class Program
 
 	private static void TestSeedRight(ulong seed)
 	{
-		for (var i = 0; i < 1000; i++)
+		for (var i = 0; i < 200; i++)
 		{
 			var spawnCloud = (AdvancePidRng(ref seed) * 1000) >> 32;
 			if (spawnCloud < 100)
@@ -157,7 +157,7 @@ internal static class Program
 
 	private static void TestSeedUp(ulong seed)
 	{
-		for (var i = 0; i < 1000; i++)
+		for (var i = 0; i < 200; i++)
 		{
 			var spawnCloud = (AdvancePidRng(ref seed) * 1000) >> 32;
 			if (spawnCloud < 100)
@@ -198,7 +198,7 @@ internal static class Program
 
 	private static void TestSeedUpRight(ulong seed)
 	{
-		for (var i = 0; i < 1000; i++)
+		for (var i = 0; i < 200; i++)
 		{
 			var spawnCloud = (AdvancePidRng(ref seed) * 1000) >> 32;
 			if (spawnCloud < 100)
@@ -237,7 +237,7 @@ internal static class Program
 
 	private static void TestSeedUpLeft(ulong seed)
 	{
-		for (var i = 0; i < 1000; i++)
+		for (var i = 0; i < 200; i++)
 		{
 			var spawnCloud = (AdvancePidRng(ref seed) * 1000) >> 32;
 			if (spawnCloud < 100)
@@ -276,7 +276,7 @@ internal static class Program
 
 	private static void TestSeedDownRight(ulong seed)
 	{
-		for (var i = 0; i < 1000; i++)
+		for (var i = 0; i < 200; i++)
 		{
 			var spawnCloud = (AdvancePidRng(ref seed) * 1000) >> 32;
 			if (spawnCloud < 100)
@@ -315,7 +315,7 @@ internal static class Program
 
 	private static void TestSeedDownLeft(ulong seed)
 	{
-		for (var i = 0; i < 1000; i++)
+		for (var i = 0; i < 200; i++)
 		{
 			var spawnCloud = (AdvancePidRng(ref seed) * 1000) >> 32;
 			if (spawnCloud < 100)
@@ -356,7 +356,7 @@ internal static class Program
 
 	private static void TestSeedCenter(ulong seed)
 	{
-		for (var i = 0; i < 1000; i++)
+		for (var i = 0; i < 200; i++)
 		{
 			var spawnCloud = (AdvancePidRng(ref seed) * 1000) >> 32;
 			if (spawnCloud < 100)

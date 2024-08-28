@@ -42,7 +42,7 @@ internal static partial class Program
 #if false
 		SearchKeyInput(0, false);
 #else
-		var maxParallelism = Environment.ProcessorCount * 3 / 4;
+		var maxParallelism = Environment.ProcessorCount * 3 / 2;
 		var threads = new Thread[maxParallelism];
 		var inputsPerThread = 4096 / maxParallelism;
 		for (var i = 0; i < maxParallelism; i++)
@@ -66,24 +66,26 @@ internal static partial class Program
 	}
 
 	//private const string INIT_MESSAGE_NO_TOUCH = "2036FE0200000000E09B2602749D2602749D26025725990015754916A665BC8843043004625957000000000000060000A02500008000000000000000000001A0";
-	private const string INIT_MESSAGE_TOUCHING = "2036FE0200000000E09B2602749D2602749D2602C3719C00A79449160050BB887709010300564000000000004001E00334A400008000000000000000000001A0";
+	private const string INIT_MESSAGE_TOUCHING = "2036FE0200000000E09B2602749D2602749D2602563F9C001F9549168155BB886405010400474900000000007501500CF92B00008000000000000000000001A0";
 
 	private static bool CheckBattleRng(ulong battleRng)
 	{
 		//return CheckBianca1(battleRng);
+		//return CheckBianca1NoSpeedTie(battleRng);
 		//return CheckCheren1(battleRng);
-		//return CheckN1(battleRng);
-		//return CheckLillipupCatch(battleRng);
+		//return CheckN1Growl(battleRng);
+		//return CheckN1Scratch(battleRng);
 		//return CheckJimmy(battleRng);
 		//return CheckBianca2(battleRng);
 		//return CheckCheren2(battleRng);
 		//return CheckMaxwell(battleRng);
 		//return CheckTia(battleRng);
-		//return CheckChili(battleRng);
+		//return CheckCilan(battleRng);
 		//return CheckPlasmaGrunt1(battleRng);
 		//return CheckPlasmaGrunt2(battleRng);
 		//return CheckKumiAmy(battleRng);
 		//return CheckCheren3(battleRng);
+		//return CheckCheren3TakeDown(battleRng);
 		//return CheckWoobatCatch(battleRng);
 		//return CheckPlasmaGrunt3(battleRng);
 		//return CheckPlasmaGrunt4(battleRng);
@@ -91,7 +93,9 @@ internal static partial class Program
 		//return CheckCarter(battleRng);
 		//return CheckSatomi(battleRng);
 		//return CheckLydia(battleRng);
-		//return CheckLenora(battleRng);
+		//return CheckLenoraNoXSpeedConfuseSelfHit(battleRng);
+		//return CheckLenoraNoXSpecConfuseSelfHit(battleRng);
+		//return CheckLenoraNoXSpec(battleRng);
 		//return CheckPlasmaGrunt5(battleRng);
 		//return CheckPlasmaGrunt6(battleRng);
 		//return CheckAudra(battleRng);
@@ -99,17 +103,18 @@ internal static partial class Program
 		//return CheckPlasmaGrunt8(battleRng);
 		//return CheckPlasmaGrunt9(battleRng);
 		//return CheckJack(battleRng);
-		//return CheckLouis(battleRng);
 		//return CheckBurgh(battleRng);
 		//return CheckBianca3(battleRng);
 		//return CheckCheren4(battleRng);
 		//return CheckPlasmaGrunt10(battleRng);
-		//return CheckN3(battleRng);
-		//return CheckMagnolia(battleRng);
+		//return CheckN3GustFirst(battleRng);
+		//return CheckMagnoliaXSpec(battleRng);
+		//return CheckMagnoliaNoXSpec(battleRng);
 		//return CheckCody(battleRng);
 		//return CheckRolan(battleRng);
 		//return CheckColette(battleRng);
-		//return CheckElesa(battleRng);
+		//return CheckColette2Flinch(battleRng);
+		//return CheckElesa2Confusion(battleRng);
 		//return CheckCheren5(battleRng);
 		//return CheckSarahBilly(battleRng);
 		//return CheckPlasmaGrunt11(battleRng);
@@ -133,37 +138,27 @@ internal static partial class Program
 		//return CheckTerrell(battleRng);
 		//return CheckGrant(battleRng);
 		//return CheckMiriam(battleRng);
-		//return CheckKendrew(battleRng);
 		//return CheckMikiko(battleRng);
 		//return CheckChandra(battleRng);
-		//return CheckBrycen(battleRng);
-		//return CheckPlasmaGruntDS1(battleRng);
-		//return CheckPlasmaGruntDS2(battleRng);
-		//return CheckPlasmaGruntDS3(battleRng);
-		//return CheckPlasmaGruntDS4(battleRng);
-		//return CheckPlasmaGruntDS5(battleRng);
-		//return CheckPlasmaGruntDS6(battleRng);
-		//return CheckPlasmaGruntDS7(battleRng);
-		//return CheckPlasmaGruntDS8(battleRng);
-		//return CheckPlasmaGruntDS9(battleRng);
+		//return CheckBrycenSwagger(battleRng);
+		//return CheckBrycenXSpec(battleRng);
+		//return CheckBrycenFlinch(battleRng);
+		//return CheckBrycenSwaggerNoMiss(battleRng);
 		//return CheckPlasmaGrunt16(battleRng);
 		//return CheckPlasmaGrunt17(battleRng);
 		//return CheckPlasmaGrunt18(battleRng);
 		//return CheckPlasmaGrunt19(battleRng);
 		//return CheckBianca5(battleRng);
-		//return CheckWebster(battleRng);
 		//return CheckOlwen(battleRng);
-		//return CheckJose(battleRng);
-		//return CheckClara(battleRng);
 		//return CheckHugo(battleRng);
 		//return CheckTom(battleRng);
 		//return CheckDara(battleRng);
 		//return CheckKim(battleRng);
 		//return CheckDrayden(battleRng);
 		//return CheckCheren7(battleRng);
-		//return CheckMarshal(battleRng);
-		//return CheckCaitlin(battleRng);
+		//return CheckMarshall(battleRng);
 		//return CheckGrimsley(battleRng);
+		//return CheckCaitlin(battleRng);
 		//return CheckShauntal(battleRng);
 		//return CheckReshiramCatch(battleRng);
 		//return CheckN5(battleRng);
